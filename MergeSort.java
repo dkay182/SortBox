@@ -12,7 +12,7 @@ package sortstuff;
 public class MergeSort {
     void mergeSort(int[] arr, int start, int end) {
         if (start < end) {
-            int mid = (start + end) / 2;
+            int mid = start + (end - start) / 2;
             mergeSort(arr, start, mid);
             mergeSort(arr, mid + 1, end);
             merge(arr, start, mid, end);
@@ -25,10 +25,10 @@ public class MergeSort {
         int[] fh = new int[fhl];
         int[] lh = new int[lhl];
 
-        for (int i = 0; i < fh.length; i++) {
+        for (int i=0; i<fh.length; i++) {
             fh[i] = arr[start + i];
         }
-        for (int i =0; i < lh.length; i++) {
+        for (int i=0; i<lh.length; i++) {
             lh[i] = arr[mid + i + 1];
         }
 

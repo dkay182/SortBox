@@ -62,7 +62,7 @@ public class SortBox extends javax.swing.JFrame {
 
         jLabel3.setText("Number of Items:");
 
-        numItemsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "100", "1000" }));
+        numItemsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "100", "1000", "10000" }));
 
         generateButton.setText("Generate");
         generateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,14 +116,14 @@ public class SortBox extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numItemsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numItemsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rangeSpinner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(generateButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sortMethodCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,18 +197,22 @@ public class SortBox extends javax.swing.JFrame {
         
         switch (sortMethod) {
             case "Merge":
-                MergeSort msObject = new MergeSort();
+                MergeSort msOb = new MergeSort();
                 startTime = System.currentTimeMillis();
-                msObject.mergeSort(numArr, 0, numArr.length-1);
+                msOb.mergeSort(numArr, 0, numArr.length-1);
                 endTime = System.currentTimeMillis();
                 break;
             case "Quick":
-                startTime = 0;
-                endTime = 0;
+                QuickSort qsOb = new QuickSort();
+                startTime = System.currentTimeMillis();
+                qsOb.quickSort(numArr, 0, numArr.length-1);
+                endTime = System.currentTimeMillis();
                 break;
             case "Insertion":
-                startTime = 0;
-                endTime = 0;
+                InsertionSort isOb = new InsertionSort();
+                startTime = System.currentTimeMillis();
+                isOb.insertionSort(numArr);
+                endTime = System.currentTimeMillis();
                 break;
         }
         
