@@ -1,3 +1,3 @@
 # SortBox
-Simple sorting tool with GUI<br>
+Simple sorting GUI<br>
 Made with Swing in Netbeans IDE
